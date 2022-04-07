@@ -1,0 +1,4 @@
+import { Activity, ActivityType, Asset, Contract, Offer, Ticker } from './types'
+import { getContractState } from './utils'
+
+export const fetcher = (url: string) => fetch(url).then((res) => res.json())

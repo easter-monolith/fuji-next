@@ -1,0 +1,91 @@
+import { fetchAsset, fetchAssets } from './api'
+import { randomMessage, randomTime, randomTxId } from './random'
+import { Activity, ActivityType, Contract, Ticker } from './types'
+
+export const balance = (ticker: Ticker): number => {
+  switch (ticker) {
+    case 'LBTC':
+      return 2
+    case 'USDt':
+      return 42_000
+    case 'fUSD':
+      return 4_200
+    case 'fBMN':
+      return 0.001
+    default:
+      return 0
+  }
+}
+
+const contracts = [
+  {
+    collateral: {
+      ticker: 'LBTC',
+      quantity: 20,
+    },
+    createdAt: 1647874196970,
+    payout: 0.25,
+    synthetic: {
+      ticker: 'fBMN',
+      quantity: 1,
+    },
+    txid: '0c5d451941f37b801d04c46920f2bc5bbd3986e5f56cb56c6b17bedc655e9fc6',
+  },
+  {
+    collateral: {
+      ticker: 'LBTC',
+      quantity: 1.1,
+    },
+    createdAt: 1647874996970,
+    payout: 0.25,
+    synthetic: {
+      ticker: 'fUSD',
+      quantity: 21000,
+    },
+    txid: '6b397062b69411b554ec398ae3b25fdc54fab1805126786581a56a7746afbab2',
+  },
+  {
+    collateral: {
+      ticker: 'USDt',
+      quantity: 500000,
+    },
+    createdAt: 1647874906970,
+    payout: 0.25,
+    synthetic: {
+      ticker: 'fBMN',
+      quantity: 1,
+    },
+    txid: 'c1e117b516469e56872bb22bad278041e7596682f03aa0aa10d39dae79bfbe8f',
+  },
+]
+
+export function getContracts() {
+  const promises = contracts.map(async (contract) => {
+    const collateral = await fetchAsset(contract.collateral.ticker)
+    const synthetic = await fetchAsset(contract.synthetic.ticker)
+    if (!collateral) throw new Error(`Contract with unknown collateral ${contract.collateral.ticker}`)
+    if (!synthetic) throw new Error(`Contract with unknown synthetic ${contract.synthetic.ticker}`)
+    contract.collateral = { ...contract.collateral, ...collateral }
+    contract.synthetic = { ...contract.synthetic, ...synthetic }
+    return contract as Contract
+  })
+  return Promise.all(promises);
+}
+
+export async function getActivities(): Promise<Activity[]> {
+  let activities: Activity[] = []
+  const contracts = await getContracts()
+  for (const contract of contracts) {
+    for (const type in ActivityType) {
+      const activity = {
+        contract,
+        createdAt: randomTime(),
+        message: randomMessage(type),
+        txid: randomTxId(),
+        type: type,
+      }
+      activities.push(activity)
+    }
+  }
+  return activities
+}
