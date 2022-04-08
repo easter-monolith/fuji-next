@@ -7,7 +7,7 @@ import Marina from './marina'
 
 interface PayProps {
   contract: Contract
-  topup: Asset|undefined
+  topup: number
 }
 
 const Pay = ({ contract, topup }: PayProps) => {

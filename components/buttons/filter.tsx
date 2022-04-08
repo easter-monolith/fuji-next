@@ -8,7 +8,7 @@ interface FilterButtonProps {
 const FilterButton = ({ ticker }: FilterButtonProps) => {
   return (
     <Link href={`/borrow/${ticker}`}>
-      <a className="button">Borrow</a>
+      <a className="button ml-3">Borrow</a>
     </Link>
   )
 }

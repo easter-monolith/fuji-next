@@ -7,7 +7,7 @@ interface RedeemButtonProps {
 
 const RedeemButton = ({ contract, setRedeem }: RedeemButtonProps) => {
   return (
-    <button onClick={() => setRedeem(contract)} className="button is-primary">Redeem</button>
+    <button onClick={() => setRedeem(contract)} className="button is-primary ml-3">Redeem</button>
   )
 }
 

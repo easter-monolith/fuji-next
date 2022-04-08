@@ -1,47 +1,48 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { openModal } from '../../lib/utils'
+import ConnectButton from '../buttons/connect'
 
-export default function Navbar() {
+interface NavbarProps {
+  setWallet: any
+  wallet: boolean
+}
+
+export default function Navbar({ setWallet, wallet }: NavbarProps) {
   return (
-    <nav className="navbar container">
-      <div className="is-flex is-justify-content-space-between">
-        <div>
-          <Link href="/">
-            <a className="logo">
-              <Image alt="fuji logo" height="40" src="/images/fuji-logo-128.png" width="134.375" />
-            </a>
-          </Link>
-        </div>
-        <div className="is-flex is-align-content-center">
-          <Link href="/dashboard">
-            <a>Dashboard</a>
-          </Link>
-          <a onClick={() => openModal('trade-modal')}>Trade</a>
-          <Link href="/borrow">
-            <a>Borrow</a>
-          </Link>
-        </div>
+    <>
+      <div className="container">
+        <nav className="is-flex is-justify-content-space-between">
+          <div>
+            <Link href="/">
+              <a>
+                <Image
+                  alt="fuji logo"
+                  height={48}
+                  src="/images/fuji-logo-128.png"
+                  width={161.25}
+                />
+              </a>
+            </Link>
+          </div>
+          <div className="is-flex">
+            <Link href="/dashboard">
+              <a className="is-block my-auto">Dashboard</a>
+            </Link>
+            <a className="is-block my-auto ml-5" onClick={() => openModal('trade-modal')}>Trade</a>
+            <Link href="/borrow">
+              <a className="is-block my-auto ml-5 mr-5">Borrow</a>
+            </Link>
+            <ConnectButton wallet={wallet} setWallet={setWallet} />
+          </div>
+          <style jsx>{`
+          a {
+            color: #6b1d9c;
+            font-weight: 700;
+          }
+        `}</style>
+        </nav>
       </div>
-      <style jsx>{`
-        a {
-          color: #6b1d9c;
-          display: inline-block;
-          font-weight: 700;
-          margin: auto;
-          padding: 20px;
-          text-decoration: none;
-          transition: color 300ms ease;
-        }
-        .container {
-          margin-bottom: 60px;
-          max-height: 40px;
-        }
-        a.logo {
-          max-height: 40px;
-          margin-left: -20px;
-        }
-      `}</style>
-    </nav>
+    </>
   )
 }

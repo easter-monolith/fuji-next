@@ -26,7 +26,7 @@ const Activities = () => {
   const filteredActivities = activities?.filter((a) => a.type === activityType)
 
   return (
-    <section className="section">
+    <section>
       <ActivityHeader setActivityType={setActivityType} />
       <ActivitiesList activities={filteredActivities} />
     </section>

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "bulma": "^0.9.3",
+    "marina-provider": "^1.4.8",
     "next": "12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0",

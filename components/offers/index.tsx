@@ -33,7 +33,7 @@ const Offers = ({ offers, ticker }: OffersProps) => {
   const filteredOffers = filterOffers(offers)(filter)
 
   return (
-    <section className="section">
+    <section>
       <OffersHeader />
       <OffersFilter filter={filter} setFilter={setFilter} />
       {offers && <OffersList offers={filteredOffers} />}

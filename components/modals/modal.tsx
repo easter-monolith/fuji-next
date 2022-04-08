@@ -20,6 +20,14 @@ const Modal = ({ children, id }: ModalProps) => {
         <div className="box has-text-centered">{children}</div>
       </div>
       <button onClick={closeModals} className="modal-close is-large" aria-label="close" />
+      <style jsx>{`
+        h3 {
+          color: #6b1d9c;
+        }
+        .modal-content .box {
+          background: linear-gradient(180deg, #FFFBF8 0%, #FFEAE5 100%);
+        }
+      `}</style>
     </div>
   )
 }

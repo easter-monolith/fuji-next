@@ -1,6 +1,7 @@
 import { fetchAsset, fetchAssets } from './api'
 import { randomMessage, randomTime, randomTxId } from './random'
 import { Activity, ActivityType, Contract, Ticker } from './types'
+import { detectProvider, MarinaProvider } from 'marina-provider';
 
 export const balance = (ticker: Ticker): number => {
   switch (ticker) {
@@ -59,14 +60,16 @@ const contracts = [
   },
 ]
 
-export function getContracts() {
+export async function getContracts() {
+  const marina: MarinaProvider = await detectProvider('marina')
+  if (!(await marina.isEnabled())) return []
   const promises = contracts.map(async (contract) => {
     const collateral = await fetchAsset(contract.collateral.ticker)
     const synthetic = await fetchAsset(contract.synthetic.ticker)
     if (!collateral) throw new Error(`Contract with unknown collateral ${contract.collateral.ticker}`)
     if (!synthetic) throw new Error(`Contract with unknown synthetic ${contract.synthetic.ticker}`)
-    contract.collateral = { ...contract.collateral, ...collateral }
-    contract.synthetic = { ...contract.synthetic, ...synthetic }
+    contract.collateral = { ...collateral, ...contract.collateral }
+    contract.synthetic = { ...synthetic, ...contract.synthetic }
     return contract as Contract
   })
   return Promise.all(promises);

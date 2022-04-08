@@ -4,7 +4,8 @@ import Balance from '../balance'
 import { useState } from 'react'
 import TopupButton from './button'
 import Pay from '../pay'
-import { getContractRatio } from '../../lib/utils'
+import { getCollateralQuantity, getContractRatio } from '../../lib/utils'
+import SomeError from '../layout/error'
 
 interface TopupProps {
   contract: Contract
@@ -13,8 +14,10 @@ interface TopupProps {
 const Topup = ({ contract }: TopupProps) => {
   const [pay, setPay] = useState(false)
   const [ratio, setRatio] = useState(getContractRatio(contract))
-  const [topup, setTopup] = useState<Asset>()
   const minRatio = getContractRatio(contract)
+
+  const quantity = getCollateralQuantity(contract, ratio)
+  const topup = quantity - (contract.collateral.quantity || 0)
 
   return (
     <section>
@@ -24,23 +27,15 @@ const Topup = ({ contract }: TopupProps) => {
           <div className="column is-8">
             {!pay && (
               <>
-                <Form
-                  contract={contract}
-                  ratio={ratio}
-                  setRatio={setRatio}
-                  setTopup={setTopup}
-                />
+                <Form contract={contract} ratio={ratio} setRatio={setRatio} />
                 <TopupButton
-                  contract={contract}
                   minRatio={minRatio}
                   ratio={ratio}
                   setPay={setPay}
                 />
               </>
             )}
-            {pay && (
-              <Pay contract={contract} topup={topup} />
-            )}
+            {pay && <Pay contract={contract} topup={topup} />}
           </div>
           <div className="column is-4">
             <Balance />

@@ -23,7 +23,7 @@ const Assets = () => {
   if (!assets) return <SomeError>Error getting assets</SomeError>
 
   return (
-    <section className="section">
+    <section>
       <AssetsHeader />
       <AssetsList assets={assets} />
     </section>

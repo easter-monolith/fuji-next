@@ -1,7 +1,7 @@
 import { prettyNumber } from "../../lib/pretty";
 import Image from "next/image";
 import { Asset, Offer } from "../../lib/types";
-import BorrowButton from "../buttons/button";
+import BorrowButton from "../buttons/borrow";
 
 interface IconProps {
   asset: Asset

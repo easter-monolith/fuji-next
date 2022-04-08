@@ -6,9 +6,10 @@ import Loading from '../layout/loading'
 import ContractsHeader from './header'
 import ContractsList from './list'
 
-const Contracts = () => {
-  const [contracts, setContracts] = useState<Contract[]>()
+const Contracts = ({ wallet }) => {
   const [isLoading, setLoading] = useState(false)
+  const [showActive, setShowActive] = useState(true)
+  const [contracts, setContracts] = useState<Contract[]>()
 
   useEffect(() => {
     setLoading(true)
@@ -17,15 +18,16 @@ const Contracts = () => {
         setContracts(data)
         setLoading(false)
       })
-  }, [])
+  }, [wallet])
 
   if (isLoading) return <Loading />
-  if (!contracts) return <SomeError>Error getting contracts</SomeError>
+
+  const filteredContracts = showActive ? contracts : [];
 
   return (
-    <section className="section">
-      <ContractsHeader />
-      <ContractsList contracts={contracts} />
+    <section>
+      <ContractsHeader showActive={showActive} setShowActive={setShowActive} />
+      <ContractsList contracts={filteredContracts} />
     </section>
   )
 }
