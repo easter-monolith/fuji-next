@@ -16,7 +16,7 @@ const Borrow = ({ offer }: BorrowProps) => {
   const [contract, setContract] = useState<Contract>(offer)
   const minRatio = offer.collateral.ratio || 150
 
-  let topup: Asset | undefined
+  const topup = 0
 
   return (
     <section>

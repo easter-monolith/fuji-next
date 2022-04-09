@@ -38,7 +38,7 @@ export const openModal = (id: string) => {
 export const notEnoughFunds = (asset: Asset, assets: Asset[]) => {
   if (!asset?.quantity) return true
   const ticker = asset.ticker
-  const available = findAsset({ ticker, assets })?.quantity
+  const available = findAsset(ticker, assets)?.quantity
   if (!available) return true
   return available < asset?.quantity
 }

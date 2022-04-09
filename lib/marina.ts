@@ -18,9 +18,10 @@ export const balance = (ticker: Ticker): number => {
   }
 }
 
-export async function checkMarina() {
+export async function checkMarina(): Promise<boolean> {
   const marina = await getMarina()
-  return marina && (await marina.isEnabled())
+  if (!marina) return false
+  return await marina.isEnabled()
 }
 
 export async function getMarina(): Promise<MarinaProvider | undefined> {
