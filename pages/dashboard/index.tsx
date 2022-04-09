@@ -3,13 +3,12 @@ import Activities from '../../components/activities'
 import Assets from '../../components/assets'
 import Contracts from '../../components/contracts'
 
-const Dashboard: NextPage = ({ wallet }) => {
-  console.log(wallet)
+const Dashboard: NextPage = () => {
   return (
     <>
       <Assets />
       <div className="vertical-space"></div>
-      <Contracts wallet={wallet} />
+      <Contracts />
       <div className="vertical-space"></div>
       <Activities />
       <style jsx>{`

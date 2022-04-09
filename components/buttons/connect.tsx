@@ -1,14 +1,26 @@
+import { useContext } from 'react'
+import { WalletContext } from '../providers'
+import { getMarina } from '../../lib/marina'
 
-interface ConnectButtonProps {
-  setWallet: any
-  wallet: boolean
-}
+const ConnectButton = () => {
+  const { connect, disconnect, wallet } = useContext(WalletContext)
 
-const ConnectButton = ({ setWallet, wallet }: ConnectButtonProps) => {
+  const toggle = async () => {
+    const marina = await getMarina()
+    if (!marina) return
+    if (wallet) {
+      await marina.disable()
+      disconnect()
+    } else {
+      await marina.enable()
+      connect()
+    }
+  }
+
   const message = wallet ? 'Disconnect' : 'Connect wallet'
 
   return (
-    <button onClick={() => setWallet(!wallet)} className="button is-primary my-auto">
+    <button onClick={toggle} className="button is-primary my-auto">
       {message}
     </button>
   )

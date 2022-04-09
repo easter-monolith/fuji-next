@@ -3,12 +3,7 @@ import Link from 'next/link'
 import { openModal } from '../../lib/utils'
 import ConnectButton from '../buttons/connect'
 
-interface NavbarProps {
-  setWallet: any
-  wallet: boolean
-}
-
-export default function Navbar({ setWallet, wallet }: NavbarProps) {
+export default function Navbar() {
   return (
     <>
       <div className="container">
@@ -33,7 +28,7 @@ export default function Navbar({ setWallet, wallet }: NavbarProps) {
             <Link href="/borrow">
               <a className="is-block my-auto ml-5 mr-5">Borrow</a>
             </Link>
-            <ConnectButton wallet={wallet} setWallet={setWallet} />
+            <ConnectButton />
           </div>
           <style jsx>{`
           a {

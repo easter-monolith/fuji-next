@@ -1,7 +1,7 @@
 import { fetchAsset, fetchAssets } from './api'
 import { randomMessage, randomTime, randomTxId } from './random'
 import { Activity, ActivityType, Contract, Ticker } from './types'
-import { detectProvider, MarinaProvider } from 'marina-provider';
+import { detectProvider, MarinaProvider } from 'marina-provider'
 
 export const balance = (ticker: Ticker): number => {
   switch (ticker) {
@@ -15,6 +15,20 @@ export const balance = (ticker: Ticker): number => {
       return 0.001
     default:
       return 0
+  }
+}
+
+export async function checkMarina() {
+  const marina = await getMarina()
+  return marina && (await marina.isEnabled())
+}
+
+export async function getMarina(): Promise<MarinaProvider | undefined> {
+  try {
+    return await detectProvider('marina')
+  } catch {
+    console.log('Please install Marina extension')
+    return undefined
   }
 }
 
@@ -61,18 +75,23 @@ const contracts = [
 ]
 
 export async function getContracts() {
-  const marina: MarinaProvider = await detectProvider('marina')
-  if (!(await marina.isEnabled())) return []
+  if (!checkMarina()) return []
   const promises = contracts.map(async (contract) => {
     const collateral = await fetchAsset(contract.collateral.ticker)
     const synthetic = await fetchAsset(contract.synthetic.ticker)
-    if (!collateral) throw new Error(`Contract with unknown collateral ${contract.collateral.ticker}`)
-    if (!synthetic) throw new Error(`Contract with unknown synthetic ${contract.synthetic.ticker}`)
+    if (!collateral)
+      throw new Error(
+        `Contract with unknown collateral ${contract.collateral.ticker}`
+      )
+    if (!synthetic)
+      throw new Error(
+        `Contract with unknown synthetic ${contract.synthetic.ticker}`
+      )
     contract.collateral = { ...collateral, ...contract.collateral }
     contract.synthetic = { ...synthetic, ...contract.synthetic }
     return contract as Contract
   })
-  return Promise.all(promises);
+  return Promise.all(promises)
 }
 
 export async function getActivities(): Promise<Activity[]> {

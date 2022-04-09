@@ -7,25 +7,10 @@ import Loading from '../layout/loading'
 import SomeError from '../layout/error'
 
 const Assets = () => {
-  const [assets, setAssets] = useState<Asset[]>()
-  const [isLoading, setLoading] = useState(false)
-
-  useEffect(() => {
-    setLoading(true)
-    fetchAssets()
-      .then((data) => {
-        setAssets(data.filter((asset: Asset) => asset.isSynthetic))
-        setLoading(false)
-      })
-  }, [])
-
-  if (isLoading) return <Loading />
-  if (!assets) return <SomeError>Error getting assets</SomeError>
-
   return (
     <section>
       <AssetsHeader />
-      <AssetsList assets={assets} />
+      <AssetsList />
     </section>
   )
 }

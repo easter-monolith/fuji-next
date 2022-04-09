@@ -1,12 +1,27 @@
+import { useEffect, useState } from 'react'
+import { fetchAssets } from '../../lib/api'
 import { Asset } from '../../lib/types'
+import SomeError from '../layout/error'
+import Loading from '../layout/loading'
 import AssetRow from './row'
 
-interface AssetsListProps {
-  assets: Asset[]
-}
+const AssetsList = () => {
+  const [assets, setAssets] = useState<Asset[]>()
+  const [isLoading, setLoading] = useState(false)
 
-const AssetsList = ({ assets }: AssetsListProps) => {
-  assets = assets.filter((asset) => asset.isSynthetic)
+  useEffect(() => {
+    const onlySynth = (asset: Asset) => asset.isSynthetic
+    setLoading(true)
+    fetchAssets()
+      .then((data) => {
+        setAssets(data.filter(onlySynth))
+        setLoading(false)
+      })
+  }, [])
+
+  if (isLoading) return <Loading />
+  if (!assets) return <SomeError>Error getting assets</SomeError>
+
   return (
     <div className="assets-list">
       {assets && assets.map((asset: Asset, index: number) => (
