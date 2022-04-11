@@ -16,9 +16,11 @@ const updateColors = (ratio: number) => {
 // put range labels on correct coordinates
 const updateLabels = (min: number, safe:number) => {
   if (typeof window !== 'undefined') { // don't run server side
+    console.log('updateLabels', min, safe)
     const _min = document.getElementById('min');
     const _safe = document.getElementById('safe');
     if (!_min || !_safe) return;
+    console.log('elements found')
     let left = min - 25; // 25 = 50/2 with 50 = safe delta
     _min.style.left = `${left}px`;
     if (safe >= min + 40) {
@@ -42,8 +44,10 @@ const Ratio = ({ collateral, ratio = 150, setContractRatio }: RatioProps) => {
   const state = getRatioState(ratio, min)
   const setRatio = (e: any) => setContractRatio(e.target.value)
 
-  updateLabels(min, safe)
-  updateColors(ratio)
+  useEffect(() => {
+    updateLabels(min, safe)
+    updateColors(ratio)
+  }, [min, safe, ratio])
 
   return (
     <>
