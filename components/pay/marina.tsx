@@ -2,6 +2,7 @@ import { prettyNumber } from 'lib/pretty'
 import { Contract, Ticker } from 'lib/types'
 import { openModal } from 'lib/utils'
 import MarinaModal from 'components/modals/marina'
+import Image from 'next/image'
 
 interface IntroProps {
   ticker: Ticker
@@ -31,15 +32,22 @@ const Marina = ({ contract, topup, setResult }: MarinaProps) => {
   const { ticker, value } = contract.collateral
   const quantity = topup || contract.collateral.quantity
   return (
-    <div className="is-flex">
-      <MarinaModal contract={contract} setResult={setResult} topup={topup} />
-      <button
-        onClick={() => openModal('marina-modal')}
-        className="button is-primary is-large my-auto mr-6"
-      >
-        Deposit with Marina
-      </button>
-      <div className="has-pink-border info-card px-5 py-4">
+    <div className="columns">
+      <div className="column is-6 my-auto">
+        <button
+          className="button is-primary"
+          onClick={() => openModal('marina-modal')}
+        >
+          <Image
+            src="/images/marina.svg"
+            alt="marina logo"
+            width={20}
+            height={20}
+          />
+          <span className="ml-2">Deposit with Marina</span>
+        </button>
+      </div>
+      <div className="column is-6 has-pink-border info-card px-5 py-4">
         <p className="amount">Amount to deposit</p>
         <div className="is-flex is-justify-content-space-between">
           <p className="quantity my-auto">
@@ -50,11 +58,7 @@ const Marina = ({ contract, topup, setResult }: MarinaProps) => {
           </p>
         </div>
       </div>
-      <style jsx>{`
-        div.info-card {
-          width: 100%;
-        }
-      `}</style>
+      <MarinaModal contract={contract} setResult={setResult} topup={topup} />
     </div>
   )
 }
