@@ -41,10 +41,10 @@ const Marina = ({ contract, topup, setResult }: MarinaProps) => {
       <div className="has-pink-border info-card px-5 py-4">
         <p className="amount">Amount to deposit</p>
         <div className="is-flex is-justify-content-space-between">
-          <p className="quantity">
+          <p className="quantity my-auto">
             {prettyNumber(quantity)} {ticker}
           </p>
-          <p className="value">US ${prettyNumber((quantity || 0) * value)}</p>
+          <p className="value my-auto">US ${prettyNumber((quantity || 0) * value)}</p>
         </div>
       </div>
       <style jsx>{`

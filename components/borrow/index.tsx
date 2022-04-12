@@ -1,7 +1,7 @@
 import { Asset, Contract, Offer } from '../../lib/types'
 import Form from './form'
 import Balance from '../balance'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Info from './info'
 import BorrowButton from './button'
 import Pay from '../pay'
@@ -12,15 +12,29 @@ interface BorrowProps {
 
 const Borrow = ({ offer }: BorrowProps) => {
   const [pay, setPay] = useState(false)
+  const [network, setNetwork] = useState('')
+  const [title, setTitle] = useState('Borrow')
   const [ratio, setRatio] = useState(offer.collateral.ratio || 0)
   const [contract, setContract] = useState<Contract>(offer)
   const minRatio = offer.collateral.ratio || 150
+
+  useEffect(() => {
+    const aux =
+      pay && !network
+        ? 'Select payment method'
+        : pay && network === 'lightning'
+        ? 'Deposit via Lightning'
+        : pay && network === 'liquid'
+        ? 'Deposit via Liquid'
+        : 'Borrow'
+    setTitle(aux)
+  }, [pay, network])
 
   const topup = 0
 
   return (
     <section>
-      <h1>Borrow</h1>
+      <h1>{title}</h1>
       <div className="row">
         <div className="columns">
           <div className="column is-8">
@@ -42,7 +56,11 @@ const Borrow = ({ offer }: BorrowProps) => {
               </>
             )}
             {pay && (
-              <Pay contract={contract} topup={topup} />
+              <Pay
+                contract={contract}
+                network={network}
+                setNetwork={setNetwork}
+                topup={topup} />
             )}
           </div>
           <div className="column is-4">
