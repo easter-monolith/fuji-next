@@ -1,26 +1,8 @@
 import { prettyNumber } from 'lib/pretty'
-import { Contract, Ticker } from 'lib/types'
+import { Contract } from 'lib/types'
 import { openModal } from 'lib/utils'
 import MarinaModal from 'components/modals/marina'
 import Image from 'next/image'
-
-interface IntroProps {
-  ticker: Ticker
-  topup: number | undefined
-}
-
-const Intro = ({ ticker, topup }: IntroProps) => {
-  if (topup)
-    return (
-      <p>
-        Topup contract with{' '}
-        <strong>
-          +{prettyNumber(topup)} {ticker}:
-        </strong>
-      </p>
-    )
-  return <p>Create contract:</p>
-}
 
 interface MarinaProps {
   contract: Contract
