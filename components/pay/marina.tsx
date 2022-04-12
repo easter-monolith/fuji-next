@@ -35,7 +35,10 @@ const Marina = ({ contract, topup, setResult }: MarinaProps) => {
   return (
     <div className="is-flex">
       <MarinaModal contract={contract} setResult={setResult} topup={topup} />
-      <button onClick={() => openModal('marina-modal')} className="button is-primary is-large my-auto mr-6">
+      <button
+        onClick={() => openModal('marina-modal')}
+        className="button is-primary is-large my-auto mr-6"
+      >
         Deposit with Marina
       </button>
       <div className="has-pink-border info-card px-5 py-4">
@@ -44,7 +47,9 @@ const Marina = ({ contract, topup, setResult }: MarinaProps) => {
           <p className="quantity my-auto">
             {prettyNumber(quantity)} {ticker}
           </p>
-          <p className="value my-auto">US ${prettyNumber((quantity || 0) * value)}</p>
+          <p className="value my-auto">
+            US ${prettyNumber((quantity || 0) * value)}
+          </p>
         </div>
       </div>
       <style jsx>{`
