@@ -31,7 +31,7 @@ export default function Navbar() {
               Trade
             </a>
             <Link href="/borrow">
-              <a className="is-block my-auto ml-5 mr-5">Borrow</a>
+              <a className="is-block my-auto ml-5 mr-6">Borrow</a>
             </Link>
             <ConnectButton />
           </div>

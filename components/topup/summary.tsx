@@ -15,19 +15,19 @@ const Summary = ({ contract }: SummaryProps) => {
       <div className="row py-4 px-6">
         <div className="columns">
           <div className="column is-4 info-card">
-            <p>Synthetic</p>
-            <p>{prettyAsset(contract.synthetic)}</p>
-            <p>{prettyAmount(contract.synthetic)}</p>
+            <p className="amount">Synthetic</p>
+            <p className="quantity">{prettyAsset(contract.synthetic)}</p>
+            <p className="value">{prettyAmount(contract.synthetic)}</p>
           </div>
           <div className="column is-4 info-card">
-            <p>Ratio</p>
-            <p>{prettyRatio(ratio)}%</p>
+            <p className="amount">Ratio</p>
+            <p className="quantity">{prettyRatio(ratio)}%</p>
             <PrettyState state={state} />
           </div>
           <div className="column is-4 info-card">
-            <p>Collateral</p>
-            <p>{prettyAsset(contract.collateral)}</p>
-            <p>{prettyAmount(contract.collateral)}</p>
+            <p className="amount">Collateral</p>
+            <p className="quantity">{prettyAsset(contract.collateral)}</p>
+            <p className="value">{prettyAmount(contract.collateral)}</p>
           </div>
         </div>
       </div>
