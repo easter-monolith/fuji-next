@@ -1,6 +1,6 @@
-import { prettyNumber, prettyRatio } from "../../lib/pretty"
-import { Contract } from "../../lib/types"
-import { getContractRatio } from "../../lib/utils"
+import { prettyNumber, prettyRatio } from 'lib/pretty'
+import { Contract } from 'lib/types'
+import { getContractRatio } from 'lib/utils'
 
 interface SummaryProps {
   contract: Contract

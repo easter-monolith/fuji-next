@@ -3,7 +3,10 @@ interface ContractsHeaderProps {
   setShowActive: any
 }
 
-const ContractsHeader = ({ showActive, setShowActive }: ContractsHeaderProps) => {
+const ContractsHeader = ({
+  showActive,
+  setShowActive,
+}: ContractsHeaderProps) => {
   const isSelected = (bool: boolean) => {
     if (showActive === bool) return 'selected'
     return
@@ -18,17 +21,26 @@ const ContractsHeader = ({ showActive, setShowActive }: ContractsHeaderProps) =>
       </div>
       <div className="level-right">
         <div className="level-item">
-          <p><strong>Show:</strong></p>
+          <p>
+            <strong>Show:</strong>
+          </p>
           <p className="ml-3">
-            <a className={isSelected(true)} onClick={() => setShowActive(true)}>Active</a>
+            <a className={isSelected(true)} onClick={() => setShowActive(true)}>
+              Active
+            </a>
             &nbsp;|&nbsp;
-            <a className={isSelected(false)} onClick={() => setShowActive(false)}>Expired</a>
+            <a
+              className={isSelected(false)}
+              onClick={() => setShowActive(false)}
+            >
+              Expired
+            </a>
           </p>
         </div>
       </div>
       <style jsx>{`
         a.selected {
-          font-weight: 700
+          font-weight: 700;
         }
       `}</style>
     </div>

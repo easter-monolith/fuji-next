@@ -1,6 +1,6 @@
-import { Contract } from '../../lib/types'
+import { Contract } from 'lib/types'
 import Image from 'next/image'
-import { prettyNumber } from '../../lib/pretty'
+import { prettyNumber } from 'lib/pretty'
 
 interface QrcodeProps {
   contract: Contract

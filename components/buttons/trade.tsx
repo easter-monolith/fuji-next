@@ -1,8 +1,13 @@
-import { openModal } from "../../lib/utils"
+import { openModal } from 'lib/utils'
 
 const TradeButton = () => {
   return (
-    <button onClick={() => openModal('trade-modal')} className="button is-primary">Trade</button>
+    <button
+      onClick={() => openModal('trade-modal')}
+      className="button is-primary"
+    >
+      Trade
+    </button>
   )
 }
 

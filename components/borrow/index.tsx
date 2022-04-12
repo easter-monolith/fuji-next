@@ -1,10 +1,10 @@
-import { Asset, Contract, Offer } from '../../lib/types'
+import { Contract, Offer } from 'lib/types'
 import Form from './form'
-import Balance from '../balance'
+import Balance from 'components/balance'
 import { useEffect, useState } from 'react'
 import Info from './info'
 import BorrowButton from './button'
-import Pay from '../pay'
+import Pay from 'components/pay'
 
 interface BorrowProps {
   offer: Offer
@@ -60,7 +60,8 @@ const Borrow = ({ offer }: BorrowProps) => {
                 contract={contract}
                 network={network}
                 setNetwork={setNetwork}
-                topup={topup} />
+                topup={topup}
+              />
             )}
           </div>
           <div className="column is-4">

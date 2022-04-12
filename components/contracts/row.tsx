@@ -1,9 +1,9 @@
-import { Contract } from "../../lib/types";
-import { getContractState } from "../../lib/utils";
-import RedeemButton from "../buttons/redeem";
-import TopupButton from "../buttons/topup";
-import ContractLink from "../contract/link";
-import PrettyState from "../contract/state";
+import { Contract } from 'lib/types'
+import { getContractState } from 'lib/utils'
+import RedeemButton from 'components/buttons/redeem'
+import TopupButton from 'components/buttons/topup'
+import ContractLink from 'components/contract/link'
+import PrettyState from 'components/contract/state'
 
 interface ContractRowProps {
   contract: Contract
@@ -17,7 +17,11 @@ const ContractRow = ({ contract, setRedeem }: ContractRowProps) => {
     <div className="box row">
       <div className="columns level">
         <div className="column is-2">
-          <p><strong>{quantity} {ticker}</strong></p>
+          <p>
+            <strong>
+              {quantity} {ticker}
+            </strong>
+          </p>
         </div>
         <div className="column is-2">
           <PrettyState state={state} />

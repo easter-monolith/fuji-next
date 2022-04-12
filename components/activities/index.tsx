@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ActivityType } from '../../lib/types'
+import { ActivityType } from 'lib/types'
 import ActivityHeader from './header'
 import ActivitiesList from './list'
 

@@ -1,7 +1,5 @@
 import { prettyNumber } from 'lib/pretty'
 import { Contract, Ticker } from 'lib/types'
-import Spinner from './spinner'
-import Summary from 'components/contract/summary'
 import { openModal } from 'lib/utils'
 import MarinaModal from 'components/modals/marina'
 

@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
-import { checkMarina } from '../../lib/marina'
+import { checkMarina } from 'lib/marina'
 
 export const WalletContext = createContext({
   wallet: false,
@@ -16,8 +16,7 @@ export const WalletProvider = ({ children }: WalletProviderProps) => {
   const disconnect = () => setWallet(false)
 
   useEffect(() => {
-    checkMarina()
-      .then((bool: boolean) => setWallet(bool))
+    checkMarina().then((bool: boolean) => setWallet(bool))
   })
 
   return (

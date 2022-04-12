@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from 'react'
-import { fetchAssets } from '../../lib/api'
-import { Asset } from '../../lib/types'
-import Loading from '../layout/loading'
-import { WalletContext } from '../providers'
+import { fetchAssets } from 'lib/api'
+import { Asset } from 'lib/types'
+import Loading from 'components/layout/loading'
+import { WalletContext } from 'components/providers'
 import BalanceRow from './row'
 
 const BalanceTable = () => {

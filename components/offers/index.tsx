@@ -1,8 +1,5 @@
-import { useEffect, useState } from 'react'
-import useSWR from 'swr'
-import { fetchOffers } from '../../lib/api'
-import { fetcher } from '../../lib/fetch'
-import { Offer } from '../../lib/types'
+import { useState } from 'react'
+import { Offer } from 'lib/types'
 import OffersFilter from './filter'
 import OffersHeader from './header'
 import OffersList from './list'
@@ -18,7 +15,7 @@ const filterOffers = (offers: Offer[] | undefined) => (filter: string) => {
       collateral.ratio?.toString().match(regexp) ||
       synthetic.name.match(regexp) ||
       synthetic.ticker.match(regexp) ||
-      id.match(regexp)
+      id.match(regexp),
   )
 }
 

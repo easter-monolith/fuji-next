@@ -10,7 +10,10 @@ export const getContractRatio = (contract: Contract): number => {
 }
 
 // get ratio state
-export const getRatioState = (ratio: number, minRatio: number): ContractState => {
+export const getRatioState = (
+  ratio: number,
+  minRatio: number,
+): ContractState => {
   if (ratio >= minRatio + 50) return ContractState.Safe
   if (ratio >= minRatio + 25) return ContractState.Unsafe
   if (ratio >= minRatio) return ContractState.Critical
@@ -18,16 +21,25 @@ export const getRatioState = (ratio: number, minRatio: number): ContractState =>
 }
 
 // get contract state
-export const getContractState = (contract: Contract): ContractState | undefined => {
+export const getContractState = (
+  contract: Contract,
+): ContractState | undefined => {
   if (!contract?.collateral?.ratio) return
   const ratio = getContractRatio(contract)
   return getRatioState(ratio, contract.collateral.ratio)
 }
 
 // calculate collateral needed for this synthetic and ratio
-export const getCollateralQuantity = (contract: Contract, ratio: number): number => {
+export const getCollateralQuantity = (
+  contract: Contract,
+  ratio: number,
+): number => {
   const { collateral, synthetic } = contract
-  return (synthetic.quantity || 0) * synthetic.value * ratio / 100 / collateral.value
+  return (
+    ((synthetic.quantity || 0) * synthetic.value * ratio) /
+    100 /
+    collateral.value
+  )
 }
 
 // open modal

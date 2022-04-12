@@ -1,6 +1,6 @@
 import { useContext } from 'react'
-import { WalletContext } from '../providers'
-import { getMarina } from '../../lib/marina'
+import { WalletContext } from 'components/providers'
+import { getMarina } from 'lib/marina'
 
 const ConnectButton = () => {
   const { connect, disconnect, wallet } = useContext(WalletContext)

@@ -1,7 +1,7 @@
-import { prettyNumber } from "../../lib/pretty";
-import Image from "next/image";
-import { Asset, Offer } from "../../lib/types";
-import BorrowButton from "../buttons/borrow";
+import { prettyNumber } from 'lib/pretty'
+import Image from 'next/image'
+import { Asset, Offer } from 'lib/types'
+import BorrowButton from 'components/buttons/borrow'
 
 interface IconProps {
   asset: Asset
@@ -9,12 +9,7 @@ interface IconProps {
 
 const Icon = ({ asset }: IconProps) => {
   return (
-    <Image
-      src={asset.icon}
-      alt="{asset.ticker} logo"
-      width="40"
-      height="40"
-    />
+    <Image src={asset.icon} alt="{asset.ticker} logo" width="40" height="40" />
   )
 }
 
@@ -45,10 +40,15 @@ const OfferRow = ({ offer }: OfferRowProps) => {
           <p className="is-gradient">{`>${offer.collateral.ratio}%`}</p>
         </div>
         <div className="column is-2">
-          <p className="amount is-gradient">US ${prettyNumber(offer.synthetic.value)}</p>
+          <p className="amount is-gradient">
+            US ${prettyNumber(offer.synthetic.value)}
+          </p>
         </div>
         <div className="column is-4 has-text-right">
-          <BorrowButton collateral={offer.collateral.ticker} synthetic={offer.synthetic.ticker} />
+          <BorrowButton
+            collateral={offer.collateral.ticker}
+            synthetic={offer.synthetic.ticker}
+          />
         </div>
       </div>
       <style jsx>{`

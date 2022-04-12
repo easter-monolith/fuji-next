@@ -1,4 +1,4 @@
-import { Contract } from '../../lib/types'
+import { Contract } from 'lib/types'
 
 interface BorrowButtonProps {
   contract: Contract
@@ -7,7 +7,12 @@ interface BorrowButtonProps {
   setPay: any
 }
 
-const BorrowButton = ({ contract, minRatio, ratio, setPay }: BorrowButtonProps) => {
+const BorrowButton = ({
+  contract,
+  minRatio,
+  ratio,
+  setPay,
+}: BorrowButtonProps) => {
   const enabled =
     contract.collateral.quantity &&
     contract.collateral.quantity > 0 &&

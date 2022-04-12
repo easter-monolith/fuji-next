@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { openModal } from '../../lib/utils'
-import ConnectButton from '../buttons/connect'
+import { openModal } from 'lib/utils'
+import ConnectButton from 'components/buttons/connect'
 
 export default function Navbar() {
   return (
@@ -24,18 +24,23 @@ export default function Navbar() {
             <Link href="/dashboard">
               <a className="is-block my-auto">Dashboard</a>
             </Link>
-            <a className="is-block my-auto ml-5" onClick={() => openModal('trade-modal')}>Trade</a>
+            <a
+              className="is-block my-auto ml-5"
+              onClick={() => openModal('trade-modal')}
+            >
+              Trade
+            </a>
             <Link href="/borrow">
               <a className="is-block my-auto ml-5 mr-5">Borrow</a>
             </Link>
             <ConnectButton />
           </div>
           <style jsx>{`
-          a {
-            color: #6b1d9c;
-            font-weight: 700;
-          }
-        `}</style>
+            a {
+              color: #6b1d9c;
+              font-weight: 700;
+            }
+          `}</style>
         </nav>
       </div>
     </>

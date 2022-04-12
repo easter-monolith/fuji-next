@@ -1,5 +1,4 @@
-import { ContractState } from "../../lib/types"
-
+import { ContractState } from 'lib/types'
 
 interface PrettyStateProps {
   state: ContractState | undefined

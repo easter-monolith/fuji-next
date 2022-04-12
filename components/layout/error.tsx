@@ -1,13 +1,11 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react'
 
 interface SomeErrorProps {
   children: ReactNode
 }
 
 const SomeError = ({ children }: SomeErrorProps) => {
-  return (
-    <p>{children}</p>
-  )
+  return <p>{children}</p>
 }
 
 export default SomeError

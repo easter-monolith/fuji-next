@@ -82,11 +82,11 @@ export async function getContracts() {
     const synthetic = await fetchAsset(contract.synthetic.ticker)
     if (!collateral)
       throw new Error(
-        `Contract with unknown collateral ${contract.collateral.ticker}`
+        `Contract with unknown collateral ${contract.collateral.ticker}`,
       )
     if (!synthetic)
       throw new Error(
-        `Contract with unknown synthetic ${contract.synthetic.ticker}`
+        `Contract with unknown synthetic ${contract.synthetic.ticker}`,
       )
     contract.collateral = { ...collateral, ...contract.collateral }
     contract.synthetic = { ...synthetic, ...contract.synthetic }

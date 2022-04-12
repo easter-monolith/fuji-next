@@ -11,15 +11,15 @@ export type AppPropsWithLayout = AppProps & {
 }
 
 export interface Asset {
-  icon: string;
-  id: string;
-  isSynthetic: boolean;
-  name: string;
-  precision: number;
-  quantity?: number;
-  ratio?: number;
-  ticker: string;
-  value: number;
+  icon: string
+  id: string
+  isSynthetic: boolean
+  name: string
+  precision: number
+  quantity?: number
+  ratio?: number
+  ticker: string
+  value: number
 }
 
 export enum ContractState {
@@ -31,12 +31,12 @@ export enum ContractState {
 }
 
 export interface Contract {
-  collateral: Asset;
-  payout: number;
-  synthetic: Asset;
-  createdAt?: number;
-  state?: ContractState;
-  txid?: string;
+  collateral: Asset
+  payout: number
+  synthetic: Asset
+  createdAt?: number
+  state?: ContractState
+  txid?: string
 }
 
 export enum ActivityType {
@@ -47,18 +47,18 @@ export enum ActivityType {
 }
 
 export interface Activity {
-  contract: Contract;
-  createdAt: number;
-  message: string;
-  txid: string;
-  type: string;
+  contract: Contract
+  createdAt: number
+  message: string
+  txid: string
+  type: string
 }
 
 export interface Offer {
-  id: string;
-  collateral: Asset;
-  payout: number;
-  synthetic: Asset;
+  id: string
+  collateral: Asset
+  payout: number
+  synthetic: Asset
 }
 
-export type Ticker = string;
+export type Ticker = string

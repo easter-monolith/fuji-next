@@ -1,5 +1,5 @@
-import { Dispatch, SetStateAction, useState } from 'react'
-import { ActivityType } from '../../lib/types'
+import { Dispatch, SetStateAction } from 'react'
+import { ActivityType } from 'lib/types'
 
 interface ActivitiesHeaderProps {
   setActivityType: Dispatch<SetStateAction<ActivityType>>

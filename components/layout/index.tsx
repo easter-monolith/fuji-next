@@ -1,11 +1,10 @@
-import Footer from '../footer'
-import Navbar from '../navbar'
+import Footer from 'components/footer'
+import Navbar from 'components/navbar'
 import { useRouter } from 'next/router'
 import { ReactNode } from 'react'
-import TradeModal from '../modals/trade'
-import Breadcrumbs from '../breadcrumbs'
-import { WalletProvider } from '../providers'
-import MarinaModal from 'components/modals/marina'
+import TradeModal from 'components/modals/trade'
+import Breadcrumbs from 'components/breadcrumbs'
+import { WalletProvider } from 'components/providers'
 
 interface LayoutProps {
   children: ReactNode
@@ -24,7 +23,9 @@ export default function Layout({ children }: LayoutProps) {
     <WalletProvider>
       <Navbar />
       <main>
-        <div className="container"><Breadcrumbs /></div>
+        <div className="container">
+          <Breadcrumbs />
+        </div>
         <div className="container">{children}</div>
       </main>
       <Footer />

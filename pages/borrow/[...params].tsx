@@ -1,12 +1,12 @@
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import Borrow from '../../components/borrow'
-import SomeError from '../../components/layout/error'
-import Loading from '../../components/layout/loading'
-import Offers from '../../components/offers'
-import { fetchOffers } from '../../lib/api'
-import { Offer } from '../../lib/types'
+import Borrow from 'components/borrow'
+import SomeError from 'components/layout/error'
+import Loading from 'components/layout/loading'
+import Offers from 'components/offers'
+import { fetchOffers } from 'lib/api'
+import { Offer } from 'lib/types'
 
 const BorrowTicker: NextPage = () => {
   const router = useRouter()
@@ -35,7 +35,7 @@ const BorrowTicker: NextPage = () => {
       // /borrow/fBMN/LBTC => show form to borrow synthetic
       const offer = offers.find(
         ({ synthetic, collateral }) =>
-          synthetic.ticker === params[0] && collateral.ticker === params[1]
+          synthetic.ticker === params[0] && collateral.ticker === params[1],
       )
       if (!offer) return <SomeError>Offer not found</SomeError>
       return <Borrow offer={offer} />

@@ -1,5 +1,5 @@
-import { prettyNumber } from "../../lib/pretty"
-import { Asset } from "../../lib/types"
+import { prettyNumber } from 'lib/pretty'
+import { Asset } from 'lib/types'
 import Image from 'next/image'
 
 interface CollateralProps {
@@ -19,9 +19,7 @@ const Collateral = ({ asset }: CollateralProps) => {
               width="24"
             />
           </p>
-          <p className="ml-3 my-auto">
-            {asset.ticker}
-          </p>
+          <p className="ml-3 my-auto">{asset.ticker}</p>
         </div>
       </div>
       <div className="level-right">

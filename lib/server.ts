@@ -61,5 +61,7 @@ export const apiOffers = [
 ]
 
 export const findAssetByTicker = (ticker: any) => {
-  return apiAssets.find((asset) => asset.ticker.toLowerCase() === ticker.toLowerCase())
+  return apiAssets.find(
+    (asset) => asset.ticker.toLowerCase() === ticker.toLowerCase(),
+  )
 }

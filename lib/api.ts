@@ -1,4 +1,4 @@
-import { Asset, Offer } from "./types"
+import { Asset, Offer } from './types'
 
 export async function fetchURL(url: string) {
   const res = await fetch(url)
@@ -14,11 +14,13 @@ export async function fetchAssets(): Promise<Asset[]> {
   return await fetchURL('/api/assets')
 }
 
-export async function fetchOffer(synthetic: string, collateral: string): Promise<Offer> {
+export async function fetchOffer(
+  synthetic: string,
+  collateral: string,
+): Promise<Offer> {
   return await fetchURL(`/api/offers/${synthetic}/${collateral}`)
 }
 
 export async function fetchOffers(): Promise<Offer[]> {
   return await fetchURL('/api/offers')
 }
-

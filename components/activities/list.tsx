@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from 'react'
-import { getActivities } from '../../lib/marina'
-import { Activity, ActivityType } from '../../lib/types'
-import EmptyState from '../layout/empty'
-import SomeError from '../layout/error'
-import Loading from '../layout/loading'
-import { WalletContext } from '../providers'
+import { getActivities } from 'lib/marina'
+import { Activity, ActivityType } from 'lib/types'
+import EmptyState from 'components/layout/empty'
+import SomeError from 'components/layout/error'
+import Loading from 'components/layout/loading'
+import { WalletContext } from 'components/providers'
 import ActivityRow from './row'
 
 interface ActivitiesListProps {
@@ -19,11 +19,10 @@ const ActivitiesList = ({ activityType }: ActivitiesListProps) => {
 
   useEffect(() => {
     setLoading(true)
-    getActivities()
-      .then((data) => {
-        setActivities(data)
-        setLoading(false)
-      })
+    getActivities().then((data) => {
+      setActivities(data)
+      setLoading(false)
+    })
   }, [wallet])
 
   if (!wallet) return <EmptyState>Wallet not found</EmptyState>
@@ -34,9 +33,10 @@ const ActivitiesList = ({ activityType }: ActivitiesListProps) => {
 
   return (
     <div className="activity-list">
-      {filteredActivities && filteredActivities.map((activity: Activity, index: number) => (
-        <ActivityRow key={index} activity={activity} />
-      ))}
+      {filteredActivities &&
+        filteredActivities.map((activity: Activity, index: number) => (
+          <ActivityRow key={index} activity={activity} />
+        ))}
       <style jsx>{`
         .activity-list {
           background-color: #fff;

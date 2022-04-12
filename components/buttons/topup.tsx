@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Contract } from '../../lib/types'
+import { Contract } from 'lib/types'
 
 interface TopupButtonProps {
   contract: Contract

@@ -1,34 +1,35 @@
-import { useEffect } from "react";
-import { prettyRatio } from "../../lib/pretty"
-import { Asset } from "../../lib/types"
-import { getRatioState } from "../../lib/utils";
+import { useEffect } from 'react'
+import { prettyRatio } from 'lib/pretty'
+import { Asset } from 'lib/types'
+import { getRatioState } from 'lib/utils'
 
 // update range bar colors
 const updateColors = (ratio: number) => {
-  if (typeof window !== 'undefined') { // don't run server side
-    const target = document.getElementById('range');
-    if (!target) return false;
-    const width = target.offsetWidth;
-    target.style.backgroundSize = (ratio * 100) / width + '% 100%';
+  if (typeof window !== 'undefined') {
+    // don't run server side
+    const target = document.getElementById('range')
+    if (!target) return false
+    const width = target.offsetWidth
+    target.style.backgroundSize = (ratio * 100) / width + '% 100%'
   }
-};
+}
 
 // put range labels on correct coordinates
-const updateLabels = (min: number, safe:number) => {
-  if (typeof window !== 'undefined') { // don't run server side
-    const _min = document.getElementById('min');
-    const _safe = document.getElementById('safe');
-    if (!_min || !_safe) return;
-    let left = min - 25; // 25 = 50/2 with 50 = safe delta
-    _min.style.left = `${left}px`;
+const updateLabels = (min: number, safe: number) => {
+  if (typeof window !== 'undefined') {
+    // don't run server side
+    const _min = document.getElementById('min')
+    const _safe = document.getElementById('safe')
+    if (!_min || !_safe) return
+    let left = min - 25 // 25 = 50/2 with 50 = safe delta
+    _min.style.left = `${left}px`
     if (safe >= min + 40) {
-      _safe.style.left = `${left}px`;
+      _safe.style.left = `${left}px`
     } else {
-      _safe.style.visibility = 'hidden';
+      _safe.style.visibility = 'hidden'
     }
   }
-};
-
+}
 
 interface RatioProps {
   collateral: Asset
@@ -50,8 +51,22 @@ const Ratio = ({ collateral, ratio = 150, setContractRatio }: RatioProps) => {
   return (
     <>
       <p className="range-legend">
-        <span onClick={() => {setContractRatio(min)}} id="min">min: {prettyRatio(min)}%</span>
-        <span onClick={() => {setContractRatio(safe)}} id="safe">safe: {prettyRatio(safe)}%</span>
+        <span
+          onClick={() => {
+            setContractRatio(min)
+          }}
+          id="min"
+        >
+          min: {prettyRatio(min)}%
+        </span>
+        <span
+          onClick={() => {
+            setContractRatio(safe)
+          }}
+          id="safe"
+        >
+          safe: {prettyRatio(safe)}%
+        </span>
       </p>
       <div className="level">
         <div className="level-left">

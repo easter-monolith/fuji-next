@@ -1,15 +1,15 @@
-import { prettyAmount, prettyAsset, prettyRatio } from "../../lib/pretty"
-import { Contract } from "../../lib/types"
-import { getContractRatio, getContractState } from "../../lib/utils"
-import PrettyState from "../contract/state"
+import { prettyAmount, prettyAsset, prettyRatio } from 'lib/pretty'
+import { Contract } from 'lib/types'
+import { getContractRatio, getContractState } from 'lib/utils'
+import PrettyState from 'components/contract/state'
 
 interface SummaryProps {
   contract: Contract
 }
 
 const Summary = ({ contract }: SummaryProps) => {
-  const ratio = getContractRatio(contract);
-  const state = getContractState(contract);
+  const ratio = getContractRatio(contract)
+  const state = getContractState(contract)
   return (
     <div className="has-pink-border">
       <div className="row py-4 px-6">

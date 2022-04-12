@@ -1,6 +1,6 @@
-import Image from "next/image"
-import { prettyNumber } from "../../lib/pretty"
-import { Asset } from "../../lib/types"
+import Image from 'next/image'
+import { prettyNumber } from 'lib/pretty'
+import { Asset } from 'lib/types'
 
 interface BalanceRowProps {
   asset: Asset

@@ -1,5 +1,5 @@
-import { prettyNumber } from "../../lib/pretty"
-import { Contract } from "../../lib/types"
+import { prettyNumber } from 'lib/pretty'
+import { Contract } from 'lib/types'
 
 interface BorrowInfoProps {
   contract: Contract
@@ -22,8 +22,12 @@ const BorrowInfo = ({ contract }: BorrowInfoProps) => {
         <div className="level-right">
           <div className="level-item has-text-right">
             <div className="has-text-right">
-              <p>1 {ticker} = {prettyNumber(value)} USDt</p>
-              <p>{prettyNumber((quantity || 0) * value * payout / 100)} USDt</p>
+              <p>
+                1 {ticker} = {prettyNumber(value)} USDt
+              </p>
+              <p>
+                {prettyNumber(((quantity || 0) * value * payout) / 100)} USDt
+              </p>
             </div>
           </div>
         </div>

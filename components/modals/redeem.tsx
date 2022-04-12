@@ -1,24 +1,26 @@
-import { Contract } from "../../lib/types"
-import Summary from "../contract/summary"
-import Spinner from "../pay/spinner"
-import Modal from "./modal"
+import { Contract } from 'lib/types'
+import Summary from 'components/contract/summary'
+import Spinner from 'components/pay/spinner'
+import Modal from './modal'
 
 interface RedeemModalProps {
-  contract: Contract|undefined
+  contract: Contract | undefined
 }
 
-const RedeemModal = ({ contract }: RedeemModalProps) => {
+const RedeemModal = ({ contract }: RedeemModalProps) => {
   return (
-    <Modal id='redeem-modal'>
-      {contract &&
+    <Modal id="redeem-modal">
+      {contract && (
         <>
           <Spinner />
           <h3>Waiting for confirmation...</h3>
           <p>Redeem contract:</p>
           <Summary contract={contract} />
-          <p className="confirm">Confirm this transaction in your Marina wallet</p>
+          <p className="confirm">
+            Confirm this transaction in your Marina wallet
+          </p>
         </>
-      }
+      )}
     </Modal>
   )
 }

@@ -1,6 +1,6 @@
-import Link from "next/link"
-import Image from "next/image"
-import { Contract } from "../../lib/types"
+import Link from 'next/link'
+import Image from 'next/image'
+import { Contract } from 'lib/types'
 
 const Success = () => {
   return (
@@ -15,9 +15,10 @@ const Success = () => {
       </p>
       <h2 className="mt-4">Success</h2>
       <p className="is-size-7 has-text-left">
-        In vivamus mi pretium pharetra cursus lacus, elit. Adipiscing eget vel ut non duis vitae. Augue
-        mi, bibendum ac imperdiet ipsum sed ornare. Facilisis id sem quam elementum euismod ante ut. Ac,
-        pharetra elit, sit pharetra a. Eu diam nunc nulla risus arcu, integer nulla diam, est. Nisl
+        In vivamus mi pretium pharetra cursus lacus, elit. Adipiscing eget vel
+        ut non duis vitae. Augue mi, bibendum ac imperdiet ipsum sed ornare.
+        Facilisis id sem quam elementum euismod ante ut. Ac, pharetra elit, sit
+        pharetra a. Eu diam nunc nulla risus arcu, integer nulla diam, est. Nisl
         accumsan potenti mattis consectetur pellentesque.
       </p>
       <p className="has-text-centered mt-4">
@@ -42,9 +43,10 @@ const Failure = () => {
       </p>
       <h2 className="mt-4">Something went wrong</h2>
       <p className="is-size-7 has-text-left">
-        In vivamus mi pretium pharetra cursus lacus, elit. Adipiscing eget vel ut non duis vitae. Augue
-        mi, bibendum ac imperdiet ipsum sed ornare. Facilisis id sem quam elementum euismod ante ut. Ac,
-        pharetra elit, sit pharetra a. Eu diam nunc nulla risus arcu, integer nulla diam, est. Nisl
+        In vivamus mi pretium pharetra cursus lacus, elit. Adipiscing eget vel
+        ut non duis vitae. Augue mi, bibendum ac imperdiet ipsum sed ornare.
+        Facilisis id sem quam elementum euismod ante ut. Ac, pharetra elit, sit
+        pharetra a. Eu diam nunc nulla risus arcu, integer nulla diam, est. Nisl
         accumsan potenti mattis consectetur pellentesque.
       </p>
       <p className="has-text-centered mt-4">

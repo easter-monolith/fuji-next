@@ -1,6 +1,6 @@
-import { Asset, Contract } from '../../lib/types'
-import { getCollateralQuantity } from '../../lib/utils'
-import Ratio from '../borrow/ratio'
+import { Contract } from 'lib/types'
+import { getCollateralQuantity } from 'lib/utils'
+import Ratio from 'components/borrow/ratio'
 import Summary from './summary'
 
 const getContractWithTopup = (contract: Contract, quantity = 0) => {
@@ -21,7 +21,7 @@ interface FormProps {
 const Form = ({ contract, ratio, setRatio }: FormProps) => {
   const quantity = getCollateralQuantity(contract, ratio)
   const collateral = { ...contract.collateral, quantity }
-  const future = { ...contract, collateral }
+  const future = { ...contract, collateral }
   return (
     <div className="box has-pink-border">
       <h3 className="mt-4">

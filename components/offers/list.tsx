@@ -1,4 +1,4 @@
-import { Offer } from '../../lib/types'
+import { Offer } from 'lib/types'
 import OfferRow from './row'
 
 interface OffersListProps {
@@ -31,9 +31,10 @@ const OffersList = ({ offers }: OffersListProps) => {
   return (
     <div className="offers-list">
       <OffersTableHeader />
-      {offers && offers.map((offer: Offer, index: number) => (
-        <OfferRow key={index} offer={offer} />
-      ))}
+      {offers &&
+        offers.map((offer: Offer, index: number) => (
+          <OfferRow key={index} offer={offer} />
+        ))}
     </div>
   )
 }

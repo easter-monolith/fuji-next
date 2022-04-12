@@ -1,5 +1,5 @@
-import { prettyAgo } from "../../lib/pretty";
-import { Activity } from "../../lib/types";
+import { prettyAgo } from 'lib/pretty'
+import { Activity } from 'lib/types'
 import Image from 'next/image'
 
 interface ActivityRowProps {
@@ -13,12 +13,7 @@ const ActivityRow = ({ activity }: ActivityRowProps) => {
     <div className="level">
       <div className="level-left">
         <div className="level-item">
-          <Image
-            src={icon}
-            alt="asset logo"
-            height={30}
-            width={30}
-          />
+          <Image src={icon} alt="asset logo" height={30} width={30} />
         </div>
         <div className="level-item">
           <p>{message}</p>
@@ -26,7 +21,10 @@ const ActivityRow = ({ activity }: ActivityRowProps) => {
       </div>
       <div className="level-right">
         <div className="level-item">
-          <a href="https://blockstream.info/liquid/tx/{txid}" className="button external">
+          <a
+            href="https://blockstream.info/liquid/tx/{txid}"
+            className="button external"
+          >
             {txid.substring(0, 8)}...
           </a>
         </div>

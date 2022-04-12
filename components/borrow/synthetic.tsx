@@ -1,5 +1,5 @@
-import Image from "next/image"
-import { Asset } from "../../lib/types"
+import Image from 'next/image'
+import { Asset } from 'lib/types'
 
 interface SyntheticProps {
   asset: Asset
@@ -17,7 +17,8 @@ const Synthetic = ({ asset, setSyntheticQuantity }: SyntheticProps) => {
               alt="synthetic icon"
               height="24"
               width="24"
-            /></p>
+            />
+          </p>
           <p className="ml-3 my-auto">{asset.ticker}</p>
         </div>
       </div>

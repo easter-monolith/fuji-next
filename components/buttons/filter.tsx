@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { Ticker } from "../../lib/types"
+import Link from 'next/link'
+import { Ticker } from 'lib/types'
 
 interface FilterButtonProps {
   ticker: Ticker
