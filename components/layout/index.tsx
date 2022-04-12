@@ -5,6 +5,7 @@ import { ReactNode } from 'react'
 import TradeModal from '../modals/trade'
 import Breadcrumbs from '../breadcrumbs'
 import { WalletProvider } from '../providers'
+import MarinaModal from 'components/modals/marina'
 
 interface LayoutProps {
   children: ReactNode

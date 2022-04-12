@@ -11,7 +11,7 @@ const Network = ({ ticker, setNetwork }: NetworkProps) => {
   return (
     <div>
       <div className="has-text-centered">
-        <h2>Choose how to deposit {ticker}</h2>
+        <h2 className="has-text-weight-bold is-size-4 mb-4">Choose how to deposit {ticker}</h2>
         <p>
           <button className="button is-primary" onClick={() => (setNetwork('liquid'))}>
             <Image src="/images/networks/liquid.svg" alt="liquid network logo" height={20} width={20} />
@@ -23,7 +23,7 @@ const Network = ({ ticker, setNetwork }: NetworkProps) => {
           </button>
         </p>
         {disabled &&
-          <p className="has-text-weight-bold is-size-6 mt-4">
+          <p className="has-text-weight-bold is-size-7 mt-6">
             {ticker} swaps in Lightning are still in development.
           </p>
         }
@@ -31,6 +31,10 @@ const Network = ({ ticker, setNetwork }: NetworkProps) => {
       <style jsx>{`
         button {
           margin: auto 1rem;
+        }
+        h2 {
+          font-size: 1.5rem;
+          font-weight: 700;
         }
         img {
           margin-right: 1rem;

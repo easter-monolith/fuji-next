@@ -7,17 +7,18 @@ import Marina from './marina'
 
 interface PayProps {
   contract: Contract
+  network: string
+  setNetwork: any
   topup: number
 }
 
-const Pay = ({ contract, topup }: PayProps) => {
+const Pay = ({ contract, network, setNetwork, topup }: PayProps) => {
   const ticker = contract.collateral.ticker
-  const [network, setNetwork] = useState('')
   const [result, setResult] = useState('')
   const qrcode = !result && network === 'lightning'
   const marina = !result && network === 'liquid'
   return (
-    <div className='box has-pink-border'>
+    <div className='box has-pink-border py-6 px-6'>
       {!network && <Network ticker={ticker} setNetwork={setNetwork} />}
       {qrcode && <Qrcode contract={contract} setResult={setResult} /> }
       {marina && <Marina contract={contract} topup={topup} setResult={setResult} /> }

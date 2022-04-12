@@ -16,13 +16,21 @@ const ActivitiesHeader = ({ setActivityType }: ActivitiesHeaderProps) => {
       </div>
       <div className="level-right">
         <div className="level-item">
-          <p><strong>Filter by:</strong></p>
+          <p>
+            <strong>Filter by:</strong>
+          </p>
           <div className="select is-rounded is-primary is-small ml-4">
             <select onChange={change}>
-              <option value={ActivityType.Creation}>{ActivityType.Creation}</option>
-              <option value={ActivityType.Redeemed}>{ActivityType.Redeemed}</option>
+              <option value={ActivityType.Creation}>
+                {ActivityType.Creation}
+              </option>
+              <option value={ActivityType.Redeemed}>
+                {ActivityType.Redeemed}
+              </option>
               <option value={ActivityType.Topup}>{ActivityType.Topup}</option>
-              <option value={ActivityType.Liquidated}>{ActivityType.Liquidated}</option>
+              <option value={ActivityType.Liquidated}>
+                {ActivityType.Liquidated}
+              </option>
             </select>
           </div>
         </div>
