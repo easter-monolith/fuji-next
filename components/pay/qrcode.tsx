@@ -17,7 +17,7 @@ const Qrcode = ({ contract, setResult }: QrcodeProps) => {
           <h1>Pay by Scaning this QR</h1>
           <div className="is-flex">
             <div className="has-pink-border info-card px-5 py-4">
-              <p>Pay amount</p>
+              <p>Amount to deposit</p>
               <p>{prettyNumber(quantity)} {ticker}</p>
               <p>US ${prettyNumber((quantity || 0) * value)}</p>
             </div>

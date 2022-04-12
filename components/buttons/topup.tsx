@@ -7,7 +7,7 @@ interface TopupButtonProps {
 
 const TopupButton = ({ contract }: TopupButtonProps) => {
   return (
-    <Link href={`/topup/${contract.txid}`}>
+    <Link href={`/dashboard/topup/${contract.txid}`}>
       <a className="button ml-3">Topup</a>
     </Link>
   )
