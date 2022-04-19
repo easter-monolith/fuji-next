@@ -31,7 +31,7 @@ const Form = ({ contract, ratio, setRatio }: FormProps) => {
       <Summary contract={contract} />
       <h3 className="mt-6">
         <span className="stepper">2</span>
-        How much collateral do you want to add?
+        Set your new collateral ratio
       </h3>
       <Ratio
         collateral={contract.collateral}
