@@ -146,7 +146,8 @@ const Ratio = ({ collateral, ratio = 150, setContractRatio }: RatioProps) => {
         input[type='range'].unsafe {
           background-image: linear-gradient(#ff712c, #ff712c);
         }
-        input[type='range'].critical {
+        input[type='range'].critical,
+        input[type='range'].liquidated {
           background-image: linear-gradient(#e30f00, #e30f00);
         }
       `}</style>
