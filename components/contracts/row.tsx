@@ -2,8 +2,8 @@ import { Contract } from 'lib/types'
 import { getContractState } from 'lib/utils'
 import RedeemButton from 'components/buttons/redeem'
 import TopupButton from 'components/buttons/topup'
-import ContractLink from 'components/contract/link'
 import PrettyState from 'components/contract/state'
+import ExplorerLink from 'components/links/explorer'
 
 interface ContractRowProps {
   contract: Contract
@@ -27,7 +27,7 @@ const ContractRow = ({ contract, setRedeem }: ContractRowProps) => {
           <PrettyState state={state} />
         </div>
         <div className="column is-8 has-text-right">
-          <ContractLink contract={contract} />
+          {contract.txid && <ExplorerLink txid={contract.txid} />}
           <RedeemButton contract={contract} setRedeem={setRedeem} />
           <TopupButton contract={contract} />
         </div>

@@ -1,6 +1,7 @@
 import { prettyAgo } from 'lib/pretty'
 import { Activity } from 'lib/types'
 import Image from 'next/image'
+import ExplorerLink from 'components/links/explorer'
 
 interface ActivityRowProps {
   activity: Activity
@@ -21,12 +22,7 @@ const ActivityRow = ({ activity }: ActivityRowProps) => {
       </div>
       <div className="level-right">
         <div className="level-item">
-          <a
-            href="https://blockstream.info/liquid/tx/{txid}"
-            className="button external"
-          >
-            {txid.substring(0, 8)}...
-          </a>
+          <ExplorerLink txid={txid} />
         </div>
         <div className="level-item">
           <p className="time">{prettyAgo(createdAt)}</p>
@@ -44,6 +40,8 @@ const ActivityRow = ({ activity }: ActivityRowProps) => {
           color: #6b1d9c;
           font-weight: 700;
           margin: auto 10px;
+          text-align: right;
+          width: 60px;
         }
         div.level {
           border-bottom: 1px solid #aaa;
