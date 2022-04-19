@@ -23,7 +23,7 @@ const Qrcode = ({ contract, setResult }: QrcodeProps) => {
           <h2 className="has-text-weight-bold is-size-4 mb-4">
             Pay by Scaning this QR
           </h2>
-          <div className="is-flex">
+          <div>
             <div className="has-pink-border info-card px-5 py-4">
               <p className="amount">Amount to deposit</p>
               <p className="quantity">
