@@ -15,10 +15,10 @@ const Marina = ({ contract, topup, setResult }: MarinaProps) => {
   const quantity = topup || contract.collateral.quantity
   return (
     <>
-      <div className="columns">
-        <div className="column is-6 my-auto">
+      <div className="is-flex">
+        <div className="pt-6 mt-5 mr-6">
           <button
-            className="button is-primary"
+            className="button is-primary mt-2"
             onClick={() => openModal('marina-modal')}
           >
             <Image
@@ -30,15 +30,18 @@ const Marina = ({ contract, topup, setResult }: MarinaProps) => {
             <span className="ml-2">Deposit with Marina</span>
           </button>
         </div>
-        <div className="column is-6 has-pink-border info-card px-5 py-4">
-          <p className="amount">Amount to deposit</p>
-          <div className="is-flex is-justify-content-space-between">
-            <p className="quantity my-auto">
-              {prettyNumber(quantity)} {ticker}
-            </p>
-            <p className="value my-auto">
-              US ${prettyNumber((quantity || 0) * value)}
-            </p>
+        <div className="is-flex is-flex-direction-column is-justify-content-center">
+          <h2 className="has-text-weight-bold is-size-4 mb-4">
+            Pay with Marina Wallet
+          </h2>
+          <div>
+            <div className="has-pink-border info-card px-5 py-4">
+              <p>Amount to deposit</p>
+              <p>
+                {prettyNumber(quantity)} {ticker}
+              </p>
+              <p>US ${prettyNumber((quantity || 0) * value)}</p>
+            </div>
           </div>
         </div>
       </div>
