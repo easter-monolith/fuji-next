@@ -6,6 +6,7 @@ import Info from './info'
 import BorrowButton from './button'
 import Pay from 'components/pay'
 import Title from 'components/pay/title'
+import Notifications from 'components/notifications'
 
 interface BorrowProps {
   offer: Offer
@@ -22,7 +23,7 @@ const Borrow = ({ offer }: BorrowProps) => {
 
   return (
     <section>
-      <Title name='Borrow' network={network} pay={pay} />
+      <Title name="Borrow" network={network} pay={pay} />
       <div className="row">
         <div className="columns">
           <div className="column is-8">
@@ -35,6 +36,12 @@ const Borrow = ({ offer }: BorrowProps) => {
                   setRatio={setRatio}
                 />
                 <Info contract={contract} />
+                <Notifications
+                  contract={contract}
+                  minRatio={minRatio}
+                  ratio={ratio}
+                  topup={topup}
+                />
                 <BorrowButton
                   contract={contract}
                   minRatio={minRatio}

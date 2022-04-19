@@ -40,14 +40,10 @@ const TradeModal = () => {
           </div>
         </div>
         <p className="mt-0">
-          <a href="https://beta.bitmatrix.app/">
-            Bitmatrix
-          </a>
+          <a href="https://beta.bitmatrix.app/">Bitmatrix</a>
         </p>
         <p>
-          <a href="http://dex.vulpem.com">
-            dex.vulpem.com
-          </a>
+          <a href="http://dex.vulpem.com">dex.vulpem.com</a>
         </p>
       </div>
       <style jsx>{`

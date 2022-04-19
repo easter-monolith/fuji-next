@@ -1,11 +1,12 @@
 import { Contract } from 'lib/types'
+import { useState } from 'react'
+import { getCollateralQuantity, getContractRatio } from 'lib/utils'
 import Form from './form'
 import Balance from 'components/balance'
-import { useState } from 'react'
 import TopupButton from './button'
 import Pay from 'components/pay'
-import { getCollateralQuantity, getContractRatio } from 'lib/utils'
 import Title from 'components/pay/title'
+import Notifications from 'components/notifications'
 
 interface TopupProps {
   contract: Contract
@@ -22,13 +23,19 @@ const Topup = ({ contract }: TopupProps) => {
 
   return (
     <section>
-      <Title name='Topup' network={network} pay={pay} />
+      <Title name="Topup" network={network} pay={pay} />
       <div className="row">
         <div className="columns">
           <div className="column is-8">
             {!pay && (
               <>
                 <Form contract={contract} ratio={ratio} setRatio={setRatio} />
+                <Notifications
+                  contract={contract}
+                  minRatio={minRatio}
+                  ratio={ratio}
+                  topup={topup}
+                />
                 <TopupButton
                   minRatio={minRatio}
                   ratio={ratio}
