@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -46,10 +45,6 @@ const Home: NextPage = () => {
         .logo {
           display: block;
           margin: 80px auto;
-        }
-        .section {
-          background: linear-gradient(180deg, #fffbf8 0%, #ffeae5 100%);
-          min-height: 100vh;
         }
       `}</style>
     </section>
