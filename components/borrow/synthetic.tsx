@@ -38,6 +38,11 @@ const Synthetic = ({ asset, setSyntheticQuantity }: SyntheticProps) => {
           border: 0;
           max-width: 100px;
         }
+        input:focus {
+          border-color: inherit;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+        }
       `}</style>
     </div>
   )

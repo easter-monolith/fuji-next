@@ -51,20 +51,10 @@ const Ratio = ({ collateral, ratio = 150, setContractRatio }: RatioProps) => {
   return (
     <>
       <p className="range-legend">
-        <span
-          onClick={() => {
-            setContractRatio(min)
-          }}
-          id="min"
-        >
+        <span onClick={() => setContractRatio(min)} id="min">
           min: {prettyRatio(min)}%
         </span>
-        <span
-          onClick={() => {
-            setContractRatio(safe)
-          }}
-          id="safe"
-        >
+        <span onClick={() => setContractRatio(safe)} id="safe">
           safe: {prettyRatio(safe)}%
         </span>
       </p>
@@ -86,7 +76,7 @@ const Ratio = ({ collateral, ratio = 150, setContractRatio }: RatioProps) => {
           <div className="level-item">
             <div className="level has-pink-border has-pink-background has-text-right pr-5">
               <input
-                className="input has-pink-border has-pink-background has-text-right has-suffix"
+                className="input has-pink-background has-text-right has-suffix"
                 placeholder="{ratio}%"
                 type="number"
                 value={ratio}
@@ -108,6 +98,11 @@ const Ratio = ({ collateral, ratio = 150, setContractRatio }: RatioProps) => {
         input[type='number'] {
           border: 0;
           max-width: 100px;
+        }
+        input:focus {
+          border-color: inherit;
+          -webkit-box-shadow: none;
+          box-shadow: none;
         }
         input.has-suffix {
           margin-right: 0;

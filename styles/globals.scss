@@ -2,6 +2,7 @@
 $primary: #20003c;
 $my-purple: #6b1d9c;
 $my-red: #dc3768;
+$my-pink: #f18c95;
 
 // bulma variables
 $box-radius: 0;
@@ -66,7 +67,7 @@ main {
 }
 
 .has-pink-border {
-  border: 1px solid #F18C95;
+  border: 1px solid $my-pink;
 }
 
 .has-pink-background {
@@ -161,10 +162,15 @@ p.confirm {
 
 .is-box {
   background: #FEFEFE;
-  border: 0.5px solid #F18C95;
+  border: 0.5px solid $my-pink;
   border-radius: 3px;
+  box-shadow: 0px 4px 12px 2px rgba(0, 0, 0, 0.05);
   padding: 1.25rem;
   &:not(:last-child) {
     margin-bottom: 1.5rem;
   }
+}
+
+.is-purple {
+  color: $my-purple;
 }

@@ -16,9 +16,9 @@ const AssetRow = ({ asset }: AssetRowProps) => {
           <div className="pr-4">
             <Image alt="asset logo" height={60} src={asset.icon} width={40} />
           </div>
-          <div className="is-gradient my-auto has-text-weight-bold">
+          <div className="is-purple my-auto">
             <p className="is-size-6 mb-0">{asset.name}</p>
-            <p className="is-size-6 mb-0">
+            <p className="is-size-6 mb-0 has-text-weight-bold">
               {prettyNumber(asset.quantity)} {asset.ticker}
             </p>
           </div>
