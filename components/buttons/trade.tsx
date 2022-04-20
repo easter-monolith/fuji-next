@@ -4,7 +4,7 @@ const TradeButton = () => {
   return (
     <button
       onClick={() => openModal('trade-modal')}
-      className="button is-primary"
+      className="button"
     >
       Trade
     </button>
