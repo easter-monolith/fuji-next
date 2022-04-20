@@ -1,12 +1,13 @@
 import { findAsset } from './fetch'
 import { Asset, Contract, ContractState } from './types'
+import { Decimal } from 'decimal.js'
 
 // get contract ratio
 export const getContractRatio = (contract: Contract): number => {
   const { collateral, synthetic } = contract
-  const collateralAmount = collateral.value * (collateral.quantity || 0)
-  const syntheticAmount = synthetic.value * (synthetic.quantity || 0)
-  return (collateralAmount / syntheticAmount) * 100
+  const collateralAmount = Decimal.mul(collateral.value, collateral.quantity || 0)
+  const syntheticAmount = Decimal.mul(synthetic.value, synthetic.quantity || 0)
+  return collateralAmount.div(syntheticAmount).mul(100).toNumber()
 }
 
 // get ratio state
@@ -35,11 +36,11 @@ export const getCollateralQuantity = (
   ratio: number,
 ): number => {
   const { collateral, synthetic } = contract
-  return (
-    ((synthetic.quantity || 0) * synthetic.value * ratio) /
-    100 /
-    collateral.value
-  )
+  return Decimal.mul(synthetic.quantity || 0, synthetic.value)
+    .mul(ratio)
+    .div(100)
+    .div(collateral.value)
+    .toNumber()
 }
 
 // open modal
