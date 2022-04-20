@@ -17,7 +17,7 @@ const Modal = ({ children, id }: ModalProps) => {
     <div className="modal" id={id}>
       <div onClick={closeModals} className="modal-background" />
       <div className="modal-content">
-        <div className="box has-text-centered">{children}</div>
+        <div className="is-box has-text-centered">{children}</div>
       </div>
       <button
         onClick={closeModals}
@@ -28,7 +28,7 @@ const Modal = ({ children, id }: ModalProps) => {
         h3 {
           color: #6b1d9c;
         }
-        .modal-content .box {
+        .modal-content .is-box {
           background: linear-gradient(180deg, #fffbf8 0%, #ffeae5 100%);
         }
       `}</style>

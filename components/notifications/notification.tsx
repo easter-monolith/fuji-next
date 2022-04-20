@@ -38,6 +38,7 @@ const Notification = ({ label, type }: NotificationProps) => {
       {label}
       <style jsx>{`
         p {
+          border-radius: 3px;
           margin-bottom: 1rem;
         }
         .warning {

@@ -98,10 +98,9 @@ h1 {
 }
 
 h2 {
-  background-image: linear-gradient(90deg, #63159b, #ff80ab);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #63159b;
+  font-weight: 700;
+  font-size: 20px;
 }
 
 h3 {
@@ -157,5 +156,15 @@ p.confirm {
     .box {
       background: linear-gradient(180deg, #FFFBF8 0%, #FFEAE5 100%);
     }
+  }
+}
+
+.is-box {
+  background: #FEFEFE;
+  border: 0.5px solid #F18C95;
+  border-radius: 3px;
+  padding: 1.25rem;
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
   }
 }

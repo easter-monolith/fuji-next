@@ -2,7 +2,7 @@ import BalanceTable from './table'
 
 const Balance = () => {
   return (
-    <div className="box has-pink-border">
+    <div className="is-box">
       <h3>Your balance</h3>
       <BalanceTable />
     </div>

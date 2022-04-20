@@ -10,7 +10,7 @@ interface AssetRowProps {
 
 const AssetRow = ({ asset }: AssetRowProps) => {
   return (
-    <div className="box row">
+    <div className="is-box row">
       <div className="columns level">
         <div className="column is-flex">
           <div className="pr-4">
@@ -24,7 +24,7 @@ const AssetRow = ({ asset }: AssetRowProps) => {
           </div>
         </div>
         <div className="column">
-          <p className="amount is-gradient">
+          <p className="has-text-weight-bold is-gradient">
             US ${prettyNumber((asset.quantity || 0) * asset.value)}
           </p>
         </div>

@@ -21,9 +21,7 @@ const ContractsHeader = ({
       </div>
       <div className="level-right">
         <div className="level-item">
-          <p>
-            <strong>Show:</strong>
-          </p>
+          <p className="has-text-weight-bold">Show:</p>
           <p className="ml-3">
             <a className={isSelected(true)} onClick={() => setShowActive(true)}>
               Active

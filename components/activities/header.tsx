@@ -16,9 +16,7 @@ const ActivitiesHeader = ({ setActivityType }: ActivitiesHeaderProps) => {
       </div>
       <div className="level-right">
         <div className="level-item">
-          <p>
-            <strong>Filter by:</strong>
-          </p>
+          <p className="has-text-weight-bold">Filter by:</p>
           <div className="select is-rounded is-primary is-small ml-4">
             <select onChange={change}>
               <option value={ActivityType.Creation}>

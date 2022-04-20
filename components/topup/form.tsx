@@ -23,7 +23,7 @@ const Form = ({ contract, ratio, setRatio }: FormProps) => {
   const collateral = { ...contract.collateral, quantity }
   const future = { ...contract, collateral }
   return (
-    <div className="box has-pink-border">
+    <div className="is-box">
       <h3 className="mt-4">
         <span className="stepper">1</span>
         Your present contract

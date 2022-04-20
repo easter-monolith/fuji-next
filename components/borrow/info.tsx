@@ -9,7 +9,7 @@ const BorrowInfo = ({ contract }: BorrowInfoProps) => {
   const { payout, synthetic } = contract
   const { quantity, ticker, value } = synthetic
   return (
-    <div className="box has-pink-border">
+    <div className="is-box">
       <div className="level">
         <div className="level-left">
           <div className="level-item">

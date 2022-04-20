@@ -35,7 +35,7 @@ const BorrowForm = ({
   }
 
   return (
-    <div className="box has-pink-border">
+    <div className="is-box">
       <h3 className="mt-4">
         <span className="stepper">1</span>
         How much {synthetic.ticker} you want to borrow?
