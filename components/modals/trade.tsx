@@ -4,59 +4,63 @@ import Modal from './modal'
 const TradeModal = () => {
   return (
     <Modal id="trade-modal">
-      <h3>Trade</h3>
-      <p>Trade your assets in this exchanges:</p>
-      <div className="links-wrapper">
-        <div className="columns my-0">
-          <div className="column is-6 py-0">
+      <h3 className='mb-5'>Trade</h3>
+      <p className='is-size-7 mb-5'>Trade your assets in this exchanges:</p>
+      <div className="is-flex is-justify-content-center box-container">
+        <div>
+          <a href="https://tdex.network/">
             <p>
-              <a href="#">
-                TDEX iOS App
-                <span className="icon-container">
-                  <Image
-                    src="/images/apple.svg"
-                    alt="apple logo"
-                    height={20}
-                    width={20}
-                  />
-                </span>
-              </a>
+              <Image
+                src="/images/trade/tdex.svg"
+                alt="TDEX logo"
+                height={40}
+                width={40}
+              />
             </p>
-          </div>
-          <div className="column is-6 py-0">
-            <p>
-              <a href="https://play.google.com/store/apps/details?id=io.sevenlabs.app">
-                TDEX Android App
-                <span className="icon-container">
-                  <Image
-                    src="/images/google.svg"
-                    alt="google logo"
-                    height={20}
-                    width={20}
-                  />
-                </span>
-              </a>
-            </p>
-          </div>
+            <p>TDEX</p>
+          </a>
         </div>
-        <p className="mt-0">
-          <a href="https://beta.bitmatrix.app/">Bitmatrix</a>
-        </p>
-        <p>
-          <a href="http://dex.vulpem.com">dex.vulpem.com</a>
-        </p>
+        <div>
+          <a href="https://demo.bitmatrix.app/">
+            <p>
+              <Image
+                src="/images/trade/bitmatrix.svg"
+                alt="Bitmatrix logo"
+                height={40}
+                width={40}
+              />
+            </p>
+            <p>Bitmatrix</p>
+          </a>
+        </div>
+        <div>
+          <a href="https://dex.vulpem.com/">
+            <p>
+              <Image
+                src="/images/trade/vulpem.svg"
+                alt="Vulpem logo"
+                height={40}
+                width={40}
+              />
+            </p>
+            <p>Vulpem</p>
+          </a>
+        </div>
       </div>
       <style jsx>{`
-        div.links-wrapper p {
-          max-width: 100%;
+        div.box-container > div {
+          aspect-ratio: 1/1;
+          background-color: white;
+          border: 1px solid #6b1d9c;
+          border-radius: 5px;
+          margin: 1rem;
+          padding: 1rem;
+          width: 100px;
         }
-        div.links-wrapper p a {
-          font-size: 1rem;
-        }
-        span.icon-container {
-          position: relative;
-          left: 10px;
-          top: 4px;
+        div.box-container > div p {
+          color: #6b1d9c;
+          font-size: 0.6rem;
+          font-weight: 700;
         }
       `}</style>
     </Modal>
