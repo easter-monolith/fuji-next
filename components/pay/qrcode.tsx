@@ -5,10 +5,12 @@ import { prettyNumber } from 'lib/pretty'
 interface QrcodeProps {
   contract: Contract
   setResult: any
+  topup: number
 }
 
-const Qrcode = ({ contract, setResult }: QrcodeProps) => {
-  const { quantity, ticker, value } = contract.collateral
+const Qrcode = ({ contract, setResult, topup }: QrcodeProps) => {
+  const { ticker, value } = contract.collateral
+  const quantity = topup || contract.collateral.quantity
   return (
     <>
       <div className="is-flex" onClick={() => setResult('failure')}>

@@ -20,9 +20,11 @@ const Pay = ({ contract, network, setNetwork, topup }: PayProps) => {
   return (
     <div className="box has-pink-border py-6 px-6">
       {!network && <Network ticker={ticker} setNetwork={setNetwork} />}
-      {qrcode && <Qrcode contract={contract} setResult={setResult} />}
+      {qrcode && (
+        <Qrcode contract={contract} setResult={setResult} topup={topup} />
+      )}
       {marina && (
-        <Marina contract={contract} topup={topup} setResult={setResult} />
+        <Marina contract={contract} setResult={setResult} topup={topup} />
       )}
       {result && <Result contract={contract} result={result} />}
     </div>
